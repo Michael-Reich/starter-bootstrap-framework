@@ -1,0 +1,62 @@
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Adventure Studio">
+        <meta name="generator" content="Adventure Studio">
+
+        <title>{{ this.page.title }} - Your Company</title>
+        
+        <meta name="title" content="{{ this.page.title }} - Your Company">
+        <meta name="description" content="{{ this.page.description }}">
+        
+        <meta property="og:title" content="{{ this.page.meta_title }} - Your Company" />
+        <meta property="og:description" content="{{ this.page.meta_description }}" />
+        
+        <meta property="og:url" content="{{ url_current() }}" />
+        <meta property="og:image" content="" />
+        
+        <link rel="shortcut icon" href="{{ 'assets/images/favicon.png'|theme }}" type="image/png">
+        <link rel="icon" href="{{ 'assets/images/favicon.png'|theme }}" type="image/png">
+        
+        {% styles %}
+        
+        <link href="{{ [
+            'assets/css/bootstrap.css',
+            'assets/css/font-awesome.css',
+            'assets/css/style.css'
+        ]|theme }}" rel="stylesheet">
+        
+    </head>
+    <body>
+    
+        {% if this.page.id == 'home'  %}
+            {% partial 'home-slider' %}
+        {% else %}
+            
+        {% endif %}
+        
+        {% partial 'header' %}
+
+        <div class="container">
+        
+            {% page %}
+            
+            <hr>
+            
+            {% partial 'footer' %}
+            
+        </div>
+
+        <script src="{{ [
+            'assets/js/jquery.js',
+            'assets/js/bootstrap.js'
+        ]|theme }}"></script>       
+
+        {% framework extras %}
+        {% scripts %}
+
+    </body>
+</html>
